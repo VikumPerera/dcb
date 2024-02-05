@@ -4,22 +4,22 @@ import org.springframework.http.HttpStatus;
 
 public class ErrorMessage {
 
-    private HttpStatus httpStatus;
+    private HttpStatus status;
     private String message;
 
     public ErrorMessage(){};
 
-    public ErrorMessage(HttpStatus httpStatus, String message) {
-        this.httpStatus = httpStatus;
+    public ErrorMessage(HttpStatus status, String message) {
+        this.status = status;
         this.message = message;
     }
 
-    public HttpStatus getHttpStatus() {
-        return httpStatus;
+    public HttpStatus getStatus() {
+        return status;
     }
 
-    public void setHttpStatus(HttpStatus httpStatus) {
-        this.httpStatus = httpStatus;
+    public void setStatus(HttpStatus status) {
+        this.status = status;
     }
 
     public String getMessage() {
