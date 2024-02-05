@@ -1,6 +1,6 @@
 package com.dcb.dcb.controller;
 
-import com.dcb.dcb.model.User;
+import com.dcb.dcb.model.UserDTO;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,8 +12,8 @@ public class HomeController {
     }
 
     @GetMapping("/user")
-    public User user() {
-        User user = new User();
+    public UserDTO user() {
+        UserDTO user = new UserDTO();
         user.setId("1");
         user.setName("Vikum");
         user.setEmail("vikumchathuranga92@gmail.com");
@@ -21,8 +21,8 @@ public class HomeController {
     }
 
     @GetMapping("/user/{id}")
-    public User getUserById(@PathVariable String id) {
-        User user = new User();
+    public UserDTO getUserById(@PathVariable String id) {
+        UserDTO user = new UserDTO();
         user.setId(id);
         user.setName("Vikum");
         user.setEmail("vikumchathuranga92@gmail.com");
@@ -30,8 +30,8 @@ public class HomeController {
     }
 
     @GetMapping("/user/email")
-    public User getUserByEmail(@RequestParam String email) {
-        User user = new User();
+    public UserDTO getUserByEmail(@RequestParam String email) {
+        UserDTO user = new UserDTO();
         user.setId("1");
         user.setName("Vikum");
         user.setEmail(email);

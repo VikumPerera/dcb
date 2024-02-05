@@ -3,7 +3,7 @@ package com.dcb.dcb.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties({"lastaName", "department"})
-public class Employee {
+public class EmployeeDTO {
 
     private String employeeId;
     private String firstname;

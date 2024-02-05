@@ -1,16 +1,16 @@
 package com.dcb.dcb.service;
 
-import com.dcb.dcb.model.Employee;
+import com.dcb.dcb.model.EmployeeDTO;
 
 import java.util.List;
 
 public interface EmployeeService {
 
-    Employee save(Employee employee);
+    EmployeeDTO save(EmployeeDTO employeeDTO);
 
-    List<Employee> getAllEmployees();
+    List<EmployeeDTO> getAllEmployees();
 
-    Employee getEmployeeById(String employeeId);
+    EmployeeDTO getEmployeeById(String employeeId);
 
     String deleteEmployee(String employeeId);
 }

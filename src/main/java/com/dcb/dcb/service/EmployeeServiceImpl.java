@@ -1,7 +1,7 @@
 package com.dcb.dcb.service;
 
 import com.dcb.dcb.exception.EmployeeNotFoundException;
-import com.dcb.dcb.model.Employee;
+import com.dcb.dcb.model.EmployeeDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,24 +11,24 @@ import java.util.UUID;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    List<Employee> employeeList = new ArrayList<>();
+    List<EmployeeDTO> employeeDTOList = new ArrayList<>();
     @Override
-    public Employee save(Employee employee) {
-        if (employee.getEmployeeId() == null) {
-            employee.setEmployeeId(UUID.randomUUID().toString());
+    public EmployeeDTO save(EmployeeDTO employeeDTO) {
+        if (employeeDTO.getEmployeeId() == null) {
+            employeeDTO.setEmployeeId(UUID.randomUUID().toString());
         }
-        employeeList.add(employee);
-        return employee;
+        employeeDTOList.add(employeeDTO);
+        return employeeDTO;
     }
 
     @Override
-    public List<Employee> getAllEmployees() {
-        return employeeList;
+    public List<EmployeeDTO> getAllEmployees() {
+        return employeeDTOList;
     }
 
     @Override
-    public Employee getEmployeeById(String employeeId) {
-        return employeeList
+    public EmployeeDTO getEmployeeById(String employeeId) {
+        return employeeDTOList
                 .stream()
                 .filter(employee -> employee.getEmployeeId().equals(employeeId))
                 .findFirst()
@@ -37,13 +37,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public String deleteEmployee(String employeeId) {
-        Employee employee = employeeList
+        EmployeeDTO employeeDTO = employeeDTOList
                 .stream()
                 .filter(e -> e.getEmployeeId().equals(employeeId))
                 .findFirst()
                 .orElseThrow(() -> new EmployeeNotFoundException("Employee not found with employeeId: " + employeeId));
-        employeeList.remove(employee);
+        employeeDTOList.remove(employeeDTO);
         return "Employee deleted with the Id :" + employeeId;
-
     }
 }

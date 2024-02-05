@@ -1,6 +1,6 @@
 package com.dcb.dcb.model;
 
-public class User {
+public class UserDTO {
 
     private String id;
     private String name;

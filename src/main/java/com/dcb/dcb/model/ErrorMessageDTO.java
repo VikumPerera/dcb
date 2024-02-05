@@ -2,14 +2,14 @@ package com.dcb.dcb.model;
 
 import org.springframework.http.HttpStatus;
 
-public class ErrorMessage {
+public class ErrorMessageDTO {
 
     private HttpStatus status;
     private String message;
 
-    public ErrorMessage(){};
+    public ErrorMessageDTO(){};
 
-    public ErrorMessage(HttpStatus status, String message) {
+    public ErrorMessageDTO(HttpStatus status, String message) {
         this.status = status;
         this.message = message;
     }

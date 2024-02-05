@@ -1,6 +1,6 @@
 package com.dcb.dcb.exception;
 
-import com.dcb.dcb.model.ErrorMessage;
+import com.dcb.dcb.model.ErrorMessageDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -14,15 +14,15 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
     @ExceptionHandler(EmployeeNotFoundException.class)
     @ResponseBody
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ErrorMessage employeeNotFoundException(EmployeeNotFoundException employeeNotFoundException) {
-        return new ErrorMessage(HttpStatus.NOT_FOUND, employeeNotFoundException.getMessage());
+    public ErrorMessageDTO employeeNotFoundException(EmployeeNotFoundException employeeNotFoundException) {
+        return new ErrorMessageDTO(HttpStatus.NOT_FOUND, employeeNotFoundException.getMessage());
     }
 
     @ExceptionHandler(Exception.class)
     @ResponseBody
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ErrorMessage genericExceptionHandler(Exception exception) {
-        return new ErrorMessage(HttpStatus.INTERNAL_SERVER_ERROR, exception.getMessage());
+    public ErrorMessageDTO genericExceptionHandler(Exception exception) {
+        return new ErrorMessageDTO(HttpStatus.INTERNAL_SERVER_ERROR, exception.getMessage());
     }
 
 }
