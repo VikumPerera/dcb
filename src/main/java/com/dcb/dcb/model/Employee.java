@@ -1,5 +1,8 @@
 package com.dcb.dcb.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties({"lastaName", "department"})
 public class Employee {
 
     private String employeeId;
